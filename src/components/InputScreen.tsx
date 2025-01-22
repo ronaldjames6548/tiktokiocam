@@ -18,6 +18,8 @@
 
 // Path: src/pages/api/tik.json.ts
 import { toast, Toaster } from 'solid-toast';
+import Container from "@components/container.astro";
+import Ad from "@components/ad.astro";
 
 
 import { createSignal } from "solid-js";
@@ -187,9 +189,15 @@ function InputScreen({ }: Props) {
                         <video controls src={data()!.result.videoSD ?? data()!.result.videoHD ?? data()!.result.videoWatermark ?? data()!.result.video_diyoun ?? data()!.result.music ?? ""} class=" rounded-md shadow-md my-3 w-3/4 mx-auto"></video>
                         
                         <p class='text-center text-lg font-semibold mx-auto'>{data()!.result.desc}</p>
+                    </div
+                    <Container>
+                        <div class="content">
+                        <Ad />
 
-                    </div>
-                    <div class='flex flex-col justify-center gap-2 mt-2 rounded-md shadow-md my-3 w-11/12 mx-auto'>
+                        </div>
+                    </Container>
+
+                        <div class='flex flex-col justify-center gap-2 mt-2 rounded-md shadow-md my-3 w-11/12 mx-auto'>
                         {data()!.result.videoSD && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.videoSD ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Video Low Without Watermaker</a>}
                         {data()!.result.videoHD && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.videoHD ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Video HD Without Watermaker</a>}
                         {data()!.result.videoWatermark && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.videoWatermark ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Video With Watermark</a>}
