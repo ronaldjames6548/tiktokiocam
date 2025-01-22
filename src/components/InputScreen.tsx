@@ -76,6 +76,31 @@ function InputScreen({ }: Props) {
         }
         setLoading(false)
     }
+ // Inject Advertisement Script
+    onMount(() => {
+        const script = document.createElement('script');
+        script.innerHTML = `
+            atOptions = {
+                'key' : '34573b90a095e95e849f42bc513a1ec8',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        `;
+        document.body.appendChild(script);
+
+        const adScript = document.createElement('script');
+        adScript.src = "//lockupaccede.com/34573b90a095e95e849f42bc513a1ec8/invoke.js";
+        adScript.async = true;
+        document.body.appendChild(adScript);
+
+        return () => {
+            document.body.removeChild(script);
+            document.body.removeChild(adScript);
+        };
+    });
+    
     return (
         <div>
             <Toaster />
