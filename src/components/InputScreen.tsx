@@ -18,9 +18,8 @@
 
 // Path: src/pages/api/tik.json.ts
 import { toast, Toaster } from 'solid-toast';
+import { createSignal, onMount } from "solid-js";
 
-
-import { createSignal } from "solid-js";
 type Props = {}
 interface TikTokData {
     status: string | null;
