@@ -18,7 +18,6 @@
 
 // Path: src/pages/api/tik.json.ts
 import { toast, Toaster } from 'solid-toast';
-import Ad from "@components/ad.astro";
 
 
 import { createSignal } from "solid-js";
