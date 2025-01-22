@@ -190,6 +190,24 @@ function InputScreen({ }: Props) {
                         <p class='text-center text-lg font-semibold mx-auto'>{data()!.result.desc}</p>
                     </div
 
+
+function deleteAllDownloadDivs() {
+      let ddDivs = document.querySelectorAll(".ddDiv");
+
+      if (ddDivs.length >= 1) {
+        ddDivs = Array.from(ddDivs);
+        for (const element of ddDivs) {
+          element.remove();
+        }
+      }
+
+      if (!mainDiv.classList.contains("hidden")) {
+        mainDiv.classList.add("hidden");
+        mainDiv.classList.remove("flex");
+      }
+      message.textContent = "";
+    }
+                      
                         
                         <div class='flex flex-col justify-center gap-2 mt-2 rounded-md shadow-md my-3 w-11/12 mx-auto'>
                         {data()!.result.videoSD && <a href={`https://dl.tiktokiocdn.workers.dev/api/download?url=${encodeURIComponent(data()!.result.videoSD ?? "")}&type=.mp4&title=${data()!.result.author?.nickname}`} class="p-2 bg-blue-600 shadow-md h-10 rounded text-white">Download Video Low Without Watermaker</a>}
